@@ -5,7 +5,9 @@ export default function SystemConsole() {
     const [data, setData] = useState<any>(null);
 
     useEffect(() => {
-        fetch("http://127.0.0.1:8000/api/system-status")
+        const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "https://portfoliobackend-production-0d7c.up.railway.app";
+
+        fetch(`${apiBaseUrl}/api/system-status`)
             .then(res => res.json())
             .then(setData)
             .catch(() => setData({ status: "Offline", current_task: "Idle" }));

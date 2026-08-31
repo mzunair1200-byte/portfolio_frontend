@@ -8,7 +8,9 @@ export default function WorkGrid() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("portfoliobackend-production-0d7c.up.railway.app")
+    const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "https://portfoliobackend-production-0d7c.up.railway.app";
+
+    fetch(`${apiBaseUrl}/api/projects`)
       .then((res) => res.json())
       .then((data) => {
         setProjects(data);

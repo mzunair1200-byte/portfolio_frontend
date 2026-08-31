@@ -25,7 +25,8 @@ export default function AgentChat() {
         setIsTyping(true);
 
         try {
-            const response = await fetch("portfoliobackend-production-0d7c.up.railway.app", {
+            const apiBaseUrl = process.env.NEXT_PUBLIC_API_URL || "https://portfoliobackend-production-0d7c.up.railway.app";
+            const response = await fetch(`${apiBaseUrl}/api/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ message: input }),
