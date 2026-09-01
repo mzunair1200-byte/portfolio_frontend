@@ -24,7 +24,7 @@ export default function TechnicalDNA() {
         <section className="py-32 bg-[#DEDBD2] text-[#1A1A1A] px-6 lg:px-20 border-t border-black/10">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between items-start mb-24 gap-10">
-                    <h2 className="text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
+                    <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-black uppercase tracking-tighter leading-none">
                         Technical <br /> <span className="text-[#2D4F3E] italic font-medium">Philosophy.</span>
                     </h2>
                     <p className="max-w-xs text-sm font-medium text-gray-600 leading-relaxed uppercase italic">

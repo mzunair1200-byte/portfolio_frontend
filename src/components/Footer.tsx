@@ -4,7 +4,7 @@ import { FileText, ArrowRight } from "lucide-react";
 
 export default function Footer() {
     // CONFIGURATION: Replace these with your real links
-    const MY_EMAIL = "[mx1200@gmail.com]";
+    const MY_EMAIL = "mzunair1200@gmail.com";
     const GITHUB_URL = "https://github.com/mzunair1200-byte";
     const LINKEDIN_URL = "https://linkedin.com/in/muhammad-zunair-622349246?utm_source=share_via&utm_content=profile&utm_medium=member_android";
     const RESUME_URL = "/resume.pdf"; // Put your resume PDF in the 'public' folder and name it resume.pdf
@@ -17,7 +17,7 @@ export default function Footer() {
                         <span className="text-[#2D4F3E] font-black uppercase tracking-[0.5em] text-[10px]">
                             Ready for the next step?
                         </span>
-                        <h2 className="text-6xl lg:text-[10vw] font-black uppercase tracking-tighter leading-[0.85] mt-8 italic">
+                        <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-[10vw] font-black uppercase tracking-tighter leading-[0.85] mt-8 italic">
                             Let&apos;s Build <br />
                             <span className="text-white">Something</span> <br />
                             Smart.

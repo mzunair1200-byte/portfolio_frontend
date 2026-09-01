@@ -5,6 +5,9 @@ import { Send, MessageSquare, X, Bot, Terminal } from "lucide-react";
 
 export default function AgentChat() {
     const [isOpen, setIsOpen] = useState(false);
+    // Tracks whether the user has ever opened the chat — used to turn off
+    // the red "unread" dot permanently instead of pulsing forever.
+    const [hasOpened, setHasOpened] = useState(false);
     const [messages, setMessages] = useState([
         { role: "agent", content: "z-agent summoned. I am the virtual agent for Muhammad Zunair. How can I assist you with the architecture today?" }
     ]);
@@ -15,6 +18,11 @@ export default function AgentChat() {
     useEffect(() => {
         if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }, [messages]);
+
+    const handleOpen = () => {
+        setIsOpen((prev) => !prev);
+        setHasOpened(true);
+    };
 
     const handleSend = async () => {
         if (!input.trim()) return;
@@ -46,17 +54,24 @@ export default function AgentChat() {
     };
 
     return (
-        <div className="fixed bottom-8 left-8 z-[101]">
+        // bottom-4/left-4 on mobile keeps it fully clear of the screen edges;
+        // sm: steps back out to the original bottom-8/left-8 spacing on larger screens.
+        <div className="fixed bottom-4 left-4 sm:bottom-8 sm:left-8 z-[101]">
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 20, x: -20 }}
                         animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20, x: -20 }}
-                        className="mb-6 w-[350px] h-[500px] bg-[#DEDBD2] border border-black/20 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden"
+                        // w-[calc(100vw-2rem)] = full screen width minus the 1rem margin on each
+                        // side, so it can never overflow past the viewport on any phone size.
+                        // max-w-[350px] keeps it at your original fixed size once there's room.
+                        // max-h-[75vh] instead of a fixed 500px means it shrinks gracefully
+                        // if a mobile keyboard eats vertical space.
+                        className="mb-4 w-[calc(100vw-2rem)] max-w-[350px] h-[500px] max-h-[75vh] bg-[#DEDBD2] border border-black/20 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.3)] flex flex-col overflow-hidden"
                     >
                         {/* Header: Forest Green to match Portfolio */}
-                        <div className="p-5 bg-[#2D4F3E] text-[#DEDBD2] flex justify-between items-center relative overflow-hidden">
+                        <div className="p-5 bg-[#2D4F3E] text-[#DEDBD2] flex justify-between items-center relative overflow-hidden shrink-0">
                             <div className="flex items-center gap-3 relative z-10">
                                 <div className="p-2 bg-white/10 rounded-lg">
                                     <Terminal size={14} className="text-white" />
@@ -97,7 +112,7 @@ export default function AgentChat() {
                         </div>
 
                         {/* Input Area */}
-                        <div className="p-5 bg-[#DEDBD2] border-t border-black/10">
+                        <div className="p-5 bg-[#DEDBD2] border-t border-black/10 shrink-0">
                             <div className="relative group">
                                 <input
                                     type="text"
@@ -121,12 +136,16 @@ export default function AgentChat() {
 
             {/* The Main Trigger Button */}
             <button
-                onClick={() => setIsOpen(!isOpen)}
+                onClick={handleOpen}
                 className="w-16 h-16 bg-[#2D4F3E] text-white rounded-full flex items-center justify-center shadow-2xl hover:scale-110 hover:rotate-6 transition-all duration-300 relative group border-4 border-[#DEDBD2]"
             >
                 <MessageSquare className="group-hover:hidden" />
                 <Bot className="hidden group-hover:block" />
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-[#DEDBD2] animate-pulse" />
+                {/* Only shows before the visitor has ever opened the chat — a real
+                    "you haven't seen this yet" signal instead of a permanent pulse. */}
+                {!hasOpened && (
+                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-[#DEDBD2] animate-pulse" />
+                )}
             </button>
         </div>
     );
