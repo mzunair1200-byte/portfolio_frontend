@@ -2,7 +2,8 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 
-
+// lucide-react removed brand/logo icons (Github, Linkedin, etc.) in this version,
+// so — same fix already used in Footer.tsx — these are plain inline SVGs instead.
 const GithubIcon = ({ size = 18 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -38,12 +39,12 @@ export default function Hero() {
         <div className="flex gap-6 items-center">
           <a href="https://github.com/mzunair1200-byte" target="_blank" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><GithubIcon size={18} /></a>
           <a href="https://linkedin.com/in/muhammad-zunair-622349246" target="_blank" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><LinkedinIcon size={18} /></a>
-          <a href="mailto:mzunair1200@gmail.com" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><Mail size={18} /></a>
+          <a href="mailto:mx1200@gmail.com" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><Mail size={18} /></a>
         </div>
       </div>
 
-      <div className="grid grid-cols-12 items-center relative z-10 pt-20">
-        <div className="col-span-12 lg:col-span-7">
+      <div className="grid grid-cols-12 items-center relative z-10 pt-20 min-w-0">
+        <div className="col-span-12 lg:col-span-7 min-w-0">
           <motion.span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#2D4F3E] mb-6 block">HI THERE, I&apos;M</motion.span>
           <motion.h1 
             className="text-6xl sm:text-7xl lg:text-[10vw] font-black leading-[0.8] tracking-tighter uppercase"
@@ -54,7 +55,7 @@ export default function Hero() {
           </motion.h1>
         </div>
 
-        <div className="col-span-12 lg:col-span-5 relative mt-16 lg:mt-0 px-2 lg:px-4">
+        <div className="col-span-12 lg:col-span-5 relative mt-16 lg:mt-0 px-2 lg:px-4 min-w-0">
           <motion.div className="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-2xl border-[1px] border-black/10">
             <img src="/me.jpg" alt="Portrait" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
           </motion.div>
