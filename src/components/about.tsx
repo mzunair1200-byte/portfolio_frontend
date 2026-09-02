@@ -50,7 +50,7 @@ export default function About() {
                         </div>
 
                         {/* Technical DNA Table */}
-                        <div className="mt-32 border-t border-black pt-12 grid grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div className="mt-32 border-t border-black pt-12 grid grid-cols-2 lg:grid-cols-4 gap-8 min-w-0">
                             <div>
                                 <p className="text-[10px] font-black uppercase opacity-40 mb-4">Core Engine</p>
                                 <p className="font-bold">C++ / Python / Go</p>
