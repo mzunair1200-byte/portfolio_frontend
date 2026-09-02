@@ -8,7 +8,7 @@ export default function About() {
                 <div className="grid grid-cols-12 gap-10 min-w-0">
 
                     {/* Side Label */}
-                    <div className="col-span-12 lg:col-span-3">
+                    <div className="col-span-12 lg:col-span-3 min-w-0">
                         <div className="sticky top-40">
                             <h2 className="text-[10px] font-black uppercase tracking-[0.6em] text-[#2D4F3E] mb-4">
                                 The Backstory
@@ -26,9 +26,8 @@ export default function About() {
                             viewport={{ once: true }}
                             className="text-3xl sm:text-4xl lg:text-6xl font-black leading-[0.9] tracking-tighter uppercase mb-16 italic break-words"
                         >
-                            Building software <br />
-                            is easy. <br />
-                            <span className="text-[#2D4F3E]">Building software <br /> that is resilient, <br />and actually smart?</span> <br />
+                            Building software is easy. <br />
+                            <span className="text-[#2D4F3E]">Building software that is resilient, and actually smart?</span> <br />
                             That takes work.
                         </motion.p>
 
