@@ -26,8 +26,9 @@ export default function About() {
                             viewport={{ once: true }}
                             className="text-3xl sm:text-4xl lg:text-6xl font-black leading-[0.9] tracking-tighter uppercase mb-16 italic break-words"
                         >
-                            Building software is easy. <br />
-                            <span className="text-[#2D4F3E]">Building software that is resilient, and actually smart?</span> <br />
+                            Building software <br />
+                            is easy. <br />
+                            <span className="text-[#2D4F3E]">Building software <br /> that is resilient, <br />and actually smart?</span> <br />
                             That takes work.
                         </motion.p>
 
