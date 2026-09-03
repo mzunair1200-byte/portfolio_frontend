@@ -28,7 +28,7 @@ export default function WorkGrid() {
   if (loading) return <div className="py-20 text-center font-mono opacity-40">SYNCING_LAB_DATA...</div>;
 
   return (
-    <section className="py-24 bg-[#DEDBD2] text-[#1A1A1A] px-6 lg:px-20 border-t border-black/5">
+    <section className="py-24 bg-[#DEDBD2] text-[#1A1A1A] px-6 lg:px-20 border-t border-black/5 min-w-0">
       <div className="max-w-7xl mx-auto">
 
         {/* Responsive Header */}

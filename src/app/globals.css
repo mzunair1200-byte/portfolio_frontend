@@ -4,9 +4,6 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  /* Tells browsers this site is light-themed only, so mobile browsers with
-     forced dark mode (e.g. Android Chrome's "Force dark" setting) don't try
-     to auto-invert/darken these colors. */
   color-scheme: light;
 }
 
@@ -28,21 +25,22 @@
    three separate `body { }` blocks -- harmless for the properties that didn't
    overlap, but it's what let the overflow-prevention rules (below) get lost
    in a rewrite without anyone noticing. One block, everything visible. */
-html, body {
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+body {
   background: #F3F3ED; /* your custom beige */
   color: var(--foreground);
   font-family: 'Inter', sans-serif;
   cursor: crosshair; /* creative/dev vibe */
-
-  /* This is the part that actually stops content from spilling past the
-     screen edge. Without these three lines, if any element on the page is
-     even slightly wider than the viewport, the browser lets the ENTIRE page
-     grow wider instead of wrapping/clipping that one element -- which is
-     what was causing text to appear to run off the side of the screen. */
-  overflow-x: hidden;
   width: 100%;
   margin: 0;
   padding: 0;
+  /* No overflow-x here on purpose -- having it on BOTH html and body creates
+     two competing scroll containers, which is what was breaking position:sticky
+     everywhere on the site. html alone is enough to stop horizontal overflow. */
 }
 
 /* Custom Albert/Colin Style stroke text */

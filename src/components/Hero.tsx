@@ -2,8 +2,7 @@
 import { motion } from "framer-motion";
 import { Mail } from "lucide-react";
 
-// lucide-react removed brand/logo icons (Github, Linkedin, etc.) in this version,
-// so — same fix already used in Footer.tsx — these are plain inline SVGs instead.
+
 const GithubIcon = ({ size = 18 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
@@ -21,7 +20,7 @@ const LinkedinIcon = ({ size = 18 }: { size?: number }) => (
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-center bg-[#DEDBD2] text-[#1A1A1A] px-6 lg:px-20 relative overflow-hidden">
+    <section className="min-h-screen flex flex-col justify-center bg-[#DEDBD2] text-[#1A1A1A] px-6 lg:px-20 relative overflow-hidden min-w-0">
       
       {/* Top Navbar */}
       <div className="absolute top-10 left-6 lg:left-20 flex justify-between items-center w-[calc(100%-3rem)] lg:w-[calc(100%-10rem)] border-b border-black/10 pb-4 z-50">
@@ -39,11 +38,11 @@ export default function Hero() {
         <div className="flex gap-6 items-center">
           <a href="https://github.com/mzunair1200-byte" target="_blank" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><GithubIcon size={18} /></a>
           <a href="https://linkedin.com/in/muhammad-zunair-622349246" target="_blank" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><LinkedinIcon size={18} /></a>
-          <a href="mailto:mx1200@gmail.com" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><Mail size={18} /></a>
+          <a href="mailto:mzunair1200@gmail.com" className="hover:text-[#2D4F3E] transition-all hover:scale-110"><Mail size={18} /></a>
         </div>
       </div>
 
-      <div className="grid grid-cols-12 items-center relative z-10 pt-20 min-w-0">
+      <div className="grid grid-cols-[repeat(12,minmax(0,1fr))] items-center relative z-10 pt-20 min-w-0">
         <div className="col-span-12 lg:col-span-7 min-w-0">
           <motion.span className="text-[10px] font-black uppercase tracking-[0.4em] text-[#2D4F3E] mb-6 block">HI THERE, I&apos;M</motion.span>
           <motion.h1 

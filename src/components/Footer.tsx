@@ -10,7 +10,7 @@ export default function Footer() {
     const RESUME_URL = "/resume.pdf"; // Put your resume PDF in the 'public' folder and name it resume.pdf
 
     return (
-        <footer className="bg-[#1A1A1A] text-[#DEDBD2] py-20 px-6 lg:px-20 border-t border-white/5">
+        <footer className="bg-[#1A1A1A] text-[#DEDBD2] py-20 px-6 lg:px-20 border-t border-white/5 min-w-0">
             <div className="max-w-7xl mx-auto">
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-20 gap-10">
                     <div className="max-w-3xl">
